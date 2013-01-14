@@ -5,7 +5,7 @@
     /// <summary>
     /// The fitness of a specific cooperation strategy.
     /// </summary>
-	public class CooperationStrategyFitness
+    public class CooperationStrategyFitness
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CooperationStrategyFitness"/> class.

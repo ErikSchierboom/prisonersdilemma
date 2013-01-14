@@ -10,56 +10,56 @@ namespace StudioDonder.PrisonersDilemma.Domain
     /// </summary>
     public class CooperationStrategiesFitnessEvaluator
     {
-    	private const int DefaultNumberOfRounds = 10;
+        private const int DefaultNumberOfRounds = 10;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="CooperationStrategiesFitnessEvaluator"/> class.
-		/// </summary>
-    	public CooperationStrategiesFitnessEvaluator() : this(new CooperationStrategyRepository())
-    	{
-    	}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="CooperationStrategiesFitnessEvaluator"/> class.
-		/// </summary>
-		/// <param name="cooperationStrategyRepository">The cooperation strategy repository.</param>
-        public CooperationStrategiesFitnessEvaluator(CooperationStrategyRepository cooperationStrategyRepository)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CooperationStrategiesFitnessEvaluator"/> class.
+        /// </summary>
+        public CooperationStrategiesFitnessEvaluator() : this(new CooperationStrategyRepository())
         {
-			Requires.NotNull(cooperationStrategyRepository, "cooperationStrategyRepository");
-
-            this.CooperationChoicesPayoff = new CooperationChoicesPayoff();
-        	this.NumberOfRounds = DefaultNumberOfRounds;
-			this.CooperationStrategies = cooperationStrategyRepository.GetAll();
         }
 
-		/// <summary>
-		/// Gets or sets the cooperation strategies.
-		/// </summary>
-    	public IEnumerable<CooperationStrategy> CooperationStrategies { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CooperationStrategiesFitnessEvaluator"/> class.
+        /// </summary>
+        /// <param name="cooperationStrategyRepository">The cooperation strategy repository.</param>
+        public CooperationStrategiesFitnessEvaluator(CooperationStrategyRepository cooperationStrategyRepository)
+        {
+            Requires.NotNull(cooperationStrategyRepository, "cooperationStrategyRepository");
+
+            this.CooperationChoicesPayoff = new CooperationChoicesPayoff();
+            this.NumberOfRounds = DefaultNumberOfRounds;
+            this.CooperationStrategies = cooperationStrategyRepository.GetAll();
+        }
+
+        /// <summary>
+        /// Gets or sets the cooperation strategies.
+        /// </summary>
+        public IEnumerable<CooperationStrategy> CooperationStrategies { get; set; }
 
         /// <summary>
         /// Gets the cooperation choices payoff.
         /// </summary>
         public CooperationChoicesPayoff CooperationChoicesPayoff { get; set; }
 
-		/// <summary>
-		/// Gets or sets the number of rounds.
-		/// </summary>
-		public int NumberOfRounds { get; set; }
+        /// <summary>
+        /// Gets or sets the number of rounds.
+        /// </summary>
+        public int NumberOfRounds { get; set; }
 
-		/// <summary>
-		/// Evaluates the specified cooperation strategies.
-		/// </summary>
-		/// <returns>
-		/// The fitnesses.
-		/// </returns>
+        /// <summary>
+        /// Evaluates the specified cooperation strategies.
+        /// </summary>
+        /// <returns>
+        /// The fitnesses.
+        /// </returns>
         public IList<CooperationStrategyFitness> Evaluate()
         {
             Verify.Operation(this.CooperationStrategies != null, "CooperationStrategies must not be null.");
             Verify.Operation(this.CooperationChoicesPayoff != null, "CooperationChoicesPayoff must not be null.");
             Verify.Operation(this.NumberOfRounds > 0, "NumberOfRounds must be greater than zero.");
 
-			var fitnesses = new List<CooperationStrategyFitness>(this.CooperationStrategies.Count());
+            var fitnesses = new List<CooperationStrategyFitness>(this.CooperationStrategies.Count());
             var simulationResults = new List<CooperationStrategyMatchupSimulationResult>();
 
             foreach (var matchup in this.GetMatchups())
@@ -70,10 +70,10 @@ namespace StudioDonder.PrisonersDilemma.Domain
                 }
 
                 var simulation = new CooperationStrategyMatchupSimulation(matchup);
-				simulationResults.Add(simulation.Simulate(this.NumberOfRounds));
+                simulationResults.Add(simulation.Simulate(this.NumberOfRounds));
             }
 
-			foreach (var cooperationStrategy in this.CooperationStrategies)
+            foreach (var cooperationStrategy in this.CooperationStrategies)
             {
                 if (cooperationStrategy == null)
                 {
@@ -98,14 +98,14 @@ namespace StudioDonder.PrisonersDilemma.Domain
 
             var strategyMatchups = new HashSet<CooperationStrategyMatchup>();
 
-			foreach (var cooperationStrategy in this.CooperationStrategies)
+            foreach (var cooperationStrategy in this.CooperationStrategies)
             {
                 if (cooperationStrategy == null)
                 {
                     continue;
                 }
 
-				foreach (var otherCooperationStrategy in this.CooperationStrategies)
+                foreach (var otherCooperationStrategy in this.CooperationStrategies)
                 {
                     if (otherCooperationStrategy == null)
                     {

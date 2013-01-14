@@ -2,7 +2,7 @@
 {
     using System;
 
-	/// <summary>
+    /// <summary>
     /// Determine the payoff for cooperation choices.
     /// </summary>
     public class CooperationChoicesPayoff : IEquatable<CooperationChoicesPayoff>
@@ -30,17 +30,17 @@
 
         /// <summary>
         /// Gets or sets the payoff for cooperate and defect.
-		/// </summary>
+        /// </summary>
         public int PayoffForCooperateAndDefect { get; set; }
 
         /// <summary>
         /// Gets or sets the payoff for defect and cooperate.
-		/// </summary>
+        /// </summary>
         public int PayoffForDefectAndCooperate { get; set; }
 
         /// <summary>
         /// Gets or sets the payoff for defect and defect.
-		/// </summary>
+        /// </summary>
         public int PayoffForDefectAndDefect { get; set; }
 
         /// <summary>

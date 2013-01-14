@@ -17,13 +17,13 @@ namespace StudioDonder.PrisonersDilemma.Domain
         }
 
         /// <summary>
-        /// 	Make a choice.
+        ///     Make a choice.
         /// </summary>
         /// <param name="opponentLastChoice">
         /// The last choice of the opponent.
         /// </param>
         /// <returns>
-        /// 	The choice.
+        ///     The choice.
         /// </returns>
         public override CooperationChoice Choose(CooperationChoice opponentLastChoice)
         {
