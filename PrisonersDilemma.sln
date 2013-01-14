@@ -12,27 +12,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{A2567B68-E008-4E45-826E-17E976D70FE3}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = PrisonersDilemma.vsmdi
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Code analysis|Any CPU = Code analysis|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{34BF8362-2516-4F9A-87D4-F0ECE72F3D01}.Code analysis|Any CPU.ActiveCfg = Code analysis|Any CPU
-		{34BF8362-2516-4F9A-87D4-F0ECE72F3D01}.Code analysis|Any CPU.Build.0 = Code analysis|Any CPU
 		{34BF8362-2516-4F9A-87D4-F0ECE72F3D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{34BF8362-2516-4F9A-87D4-F0ECE72F3D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34BF8362-2516-4F9A-87D4-F0ECE72F3D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34BF8362-2516-4F9A-87D4-F0ECE72F3D01}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2567B68-E008-4E45-826E-17E976D70FE3}.Code analysis|Any CPU.ActiveCfg = Code analysis|Any CPU
-		{A2567B68-E008-4E45-826E-17E976D70FE3}.Code analysis|Any CPU.Build.0 = Code analysis|Any CPU
 		{A2567B68-E008-4E45-826E-17E976D70FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A2567B68-E008-4E45-826E-17E976D70FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2567B68-E008-4E45-826E-17E976D70FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,7 +1,8 @@
 namespace StudioDonder.PrisonersDilemma.Domain
 {
     using System;
-    using System.Diagnostics.Contracts;
+
+    using Validation;
 
     /// <summary>
     /// The cooperation strategy base.
@@ -15,8 +16,8 @@ namespace StudioDonder.PrisonersDilemma.Domain
         /// <param name="description">The description.</param>
         protected CooperationStrategy(string name, string description)
         {
-            Contract.Requires(name != null);
-            Contract.Requires(description != null);
+            Requires.NotNull(name, "name");
+            Requires.NotNull(description, "description");
 
             this.Name = name;
             this.Description = description;
@@ -77,16 +78,6 @@ namespace StudioDonder.PrisonersDilemma.Domain
         public override int GetHashCode()
         {
             return this.Name.GetHashCode();
-        }
-
-        /// <summary>
-        /// The object invariant.
-        /// </summary>
-        [ContractInvariantMethod]
-        private void ObjectInvariant()
-        {
-            Contract.Invariant(this.Name != null);
-            Contract.Invariant(this.Description != null);
         }
     }
 }

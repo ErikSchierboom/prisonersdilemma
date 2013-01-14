@@ -1,19 +1,18 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
     /// <summary>
     /// Tests for the <see cref="NaiveCooperationStrategy"/> class.
     /// </summary>
-    [TestClass]
     public class NaiveCooperationStrategyTests : CooperationStrategyTestsBase
     {
         /// <summary>
         /// Test that the Choose method will always return <see cref="CooperationChoice.Cooperate"/>
         /// when the last choice by the opponent is <see cref="CooperationChoice.None"/>.
         /// </summary>
-        [TestMethod]
-        public void Choose_WithLastChoiceByOpponentIsNone_ReturnsCooperate()
+        [Fact]
+        public void ChooseWithLastChoiceByOpponentIsNoneReturnsCooperate()
         {
             // Arrange
             var strategy = new NaiveCooperationStrategy();
@@ -22,15 +21,15 @@
             var choice = strategy.Choose(CooperationChoice.None);
 
             // Assert
-            Assert.AreEqual(CooperationChoice.Cooperate, choice);
+            Assert.Equal(CooperationChoice.Cooperate, choice);
         }
 
         /// <summary>
         /// Test that the Choose method will always return <see cref="CooperationChoice.Cooperate"/>
         /// when the last choice by the opponent is <see cref="CooperationChoice.Cooperate"/>.
         /// </summary>
-        [TestMethod]
-        public void Choose_WithLastChoiceByOpponentIsCooperate_ReturnsCooperate()
+        [Fact]
+        public void ChooseWithLastChoiceByOpponentIsCooperateReturnsCooperate()
         {
             // Arrange
             var strategy = new NaiveCooperationStrategy();
@@ -39,15 +38,15 @@
             var choice = strategy.Choose(CooperationChoice.Cooperate);
 
             // Assert
-            Assert.AreEqual(CooperationChoice.Cooperate, choice);
+            Assert.Equal(CooperationChoice.Cooperate, choice);
         }
 
         /// <summary>
         /// Test that the Choose method will always return <see cref="CooperationChoice.Cooperate"/>
         /// when the last choice by the opponent is <see cref="CooperationChoice.Defect"/>.
         /// </summary>
-        [TestMethod]
-        public void Choose_WithLastChoiceByOpponentIsDefect_ReturnsCooperate()
+        [Fact]
+        public void ChooseWithLastChoiceByOpponentIsDefectReturnsCooperate()
         {
             // Arrange
             var strategy = new NaiveCooperationStrategy();
@@ -56,7 +55,7 @@
             var choice = strategy.Choose(CooperationChoice.Defect);
 
             // Assert
-            Assert.AreEqual(CooperationChoice.Cooperate, choice);
+            Assert.Equal(CooperationChoice.Cooperate, choice);
         }
 
         /// <summary>

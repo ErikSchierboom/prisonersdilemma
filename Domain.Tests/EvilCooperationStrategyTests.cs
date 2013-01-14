@@ -1,19 +1,18 @@
 namespace StudioDonder.PrisonersDilemma.Domain.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
     /// <summary>
     /// Tests for the <see cref="EvilCooperationStrategy"/> class.
     /// </summary>
-    [TestClass]
     public class EvilCooperationStrategyTests : CooperationStrategyTestsBase
     {
         /// <summary>
         /// Test that the Choose method will always return <see cref="CooperationChoice.Defect"/>
         /// when the last choice by the opponent is <see cref="CooperationChoice.None"/>.
         /// </summary>
-        [TestMethod]
-        public void Choose_WithLastChoiceByOpponentIsNone_ReturnsDefect()
+        [Fact]
+        public void ChooseWithLastChoiceByOpponentIsNoneReturnsDefect()
         {
             // Arrange
             var strategy = new EvilCooperationStrategy();
@@ -22,15 +21,15 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var choice = strategy.Choose(CooperationChoice.None);
 
             // Assert
-            Assert.AreEqual(CooperationChoice.Defect, choice);
+            Assert.Equal(CooperationChoice.Defect, choice);
         }
 
         /// <summary>
         /// Test that the Choose method will always return <see cref="CooperationChoice.Defect"/>
         /// when the last choice by the opponent is <see cref="CooperationChoice.Cooperate"/>.
         /// </summary>
-        [TestMethod]
-        public void Choose_WithLastChoiceByOpponentIsCooperate_ReturnsDefect()
+        [Fact]
+        public void ChooseWithLastChoiceByOpponentIsCooperateReturnsDefect()
         {
             // Arrange
             var strategy = new EvilCooperationStrategy();
@@ -39,15 +38,15 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var choice = strategy.Choose(CooperationChoice.Cooperate);
 
             // Assert
-            Assert.AreEqual(CooperationChoice.Defect, choice);
+            Assert.Equal(CooperationChoice.Defect, choice);
         }
 
         /// <summary>
         /// Test that the Choose method will always return <see cref="CooperationChoice.Defect"/>
         /// when the last choice by the opponent is <see cref="CooperationChoice.Defect"/>.
         /// </summary>
-        [TestMethod]
-        public void Choose_WithLastChoiceByOpponentIsDefect_ReturnsDefect()
+        [Fact]
+        public void ChooseWithLastChoiceByOpponentIsDefectReturnsDefect()
         {
             // Arrange
             var strategy = new EvilCooperationStrategy();
@@ -56,7 +55,7 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var choice = strategy.Choose(CooperationChoice.Defect);
 
             // Assert
-            Assert.AreEqual(CooperationChoice.Defect, choice);
+            Assert.Equal(CooperationChoice.Defect, choice);
         }
 
         /// <summary>

@@ -1,37 +1,36 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
 
-    using StudioDonder.PrisonersDilemma.Domain.Tests.Helpers;
+    using Xunit;
 
     /// <summary>
     /// Tests for the <see cref="CooperationStrategyFitness"/> class.
     /// </summary>
-    [TestClass]
     public class CooperationStrategyFitnessTests
     {
         /// <summary>
         /// Test that calling the constructor with a <c>null</c> <see cref="CooperationChoicesPayoff"/>
         /// will throw an exception.
         /// </summary>
-        [TestMethod, ExpectException]
-        public void Constructor_WithNullCooperationStrategy_ThrowsException()
+        [Fact]
+        public void ConstructorWithNullCooperationStrategyThrowsArgumentNullException()
         {
             // Arrange
             CooperationStrategy nullCooperationStrategy = null;
 
             // Act
-            new CooperationStrategyFitness(nullCooperationStrategy, 0);
-
+            
             // Assert
+            Assert.Throws<ArgumentNullException>(() => new CooperationStrategyFitness(nullCooperationStrategy, 0));
         }
 
         /// <summary>
         /// Test that calling the Strategy property returns the strategy parameter
         /// supplied to the constructor.
         /// </summary>
-        [TestMethod]
-        public void Strategy_ReturnsStrategySuppliedToConstructor()
+        [Fact]
+        public void StrategyReturnsStrategySuppliedToConstructor()
         {
             // Arrange
             var cooperationStrategy = new NaiveCooperationStrategy();
@@ -40,7 +39,7 @@
             var cooperationStrategyFitness = new CooperationStrategyFitness(cooperationStrategy, 0);
 
             // Assert
-            Assert.AreEqual(cooperationStrategy, cooperationStrategyFitness.Strategy);
+            Assert.Equal(cooperationStrategy, cooperationStrategyFitness.Strategy);
         }
     }
 }

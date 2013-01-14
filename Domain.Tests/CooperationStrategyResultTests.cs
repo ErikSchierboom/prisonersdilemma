@@ -1,19 +1,18 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
     /// <summary>
     /// Tests for the <see cref="CooperationStrategyResult"/> class.
     /// </summary>
-    [TestClass]
     public class CooperationStrategyResultTests
     {
         /// <summary>
         /// Test that calling the Equals method with the choice made
         /// not equal will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnequalChoiceMade_ReturnsFalse()
+        [Fact]
+        public void EqualsWithUnequalChoiceMadeReturnsFalse()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult { ChoiceMade = CooperationChoice.Cooperate };
@@ -23,15 +22,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(unequalCooperationStrategyResult);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with the payoff
         /// not equal will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnequalPayoff_ReturnsFalse()
+        [Fact]
+        public void EqualsWithUnequalPayoffReturnsFalse()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult { Payoff = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect };
@@ -41,15 +40,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(unequalCooperationStrategyResult);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with the cooperation strategy result instances
         /// not equal will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnequalCooperationStrategyResultInstances_ReturnsFalse()
+        [Fact]
+        public void EqualsWithUnequalCooperationStrategyResultInstancesReturnsFalse()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult { Strategy = new NaiveCooperationStrategy() };
@@ -59,15 +58,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(unequalCooperationStrategyResult);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a choice made that is equal
         /// will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithEqualChoiceMade_ReturnsTrue()
+        [Fact]
+        public void EqualsWithEqualChoiceMadeReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult { ChoiceMade = CooperationChoice.Cooperate };
@@ -77,15 +76,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(equalCooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a payoff that is equal
         /// will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithEqualPayoff_ReturnsTrue()
+        [Fact]
+        public void EqualsWithEqualPayoffReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult { Payoff = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect };
@@ -95,15 +94,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(equalCooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a strategy that is equal
         /// will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithEqualStrategy_ReturnsTrue()
+        [Fact]
+        public void EqualsWithEqualStrategyReturnsTrue()
         {
             // Arrange
             var strategy = new NaiveCooperationStrategy();
@@ -114,15 +113,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(equalCooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method on two new <see cref="CooperationStrategyResult"/>
         /// instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnchangedNewCooperationStrategyResultInstances_ReturnsTrue()
+        [Fact]
+        public void EqualsWithUnchangedNewCooperationStrategyResultInstancesReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -132,15 +131,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(otherCooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method on two new <see cref="System.Object"/>
         /// instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnchangedNewObjectInstances_ReturnsTrue()
+        [Fact]
+        public void EqualsWithUnchangedNewObjectInstancesReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -150,15 +149,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals((object)otherCooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <see cref="CooperationStrategyResult"/>
         /// that is actually the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithSameCooperationStrategyResultInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithSameCooperationStrategyResultInstanceReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -167,15 +166,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(cooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <see cref="System.Object"/>
         /// that is actually the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithSameObjectInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithSameObjectInstanceReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -184,15 +183,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals((object)cooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <c>null</c> <see cref="CooperationStrategyResult"/>
         /// will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithNullCooperationStrategyResult_ReturnsFalse()
+        [Fact]
+        public void EqualsWithNullCooperationStrategyResultReturnsFalse()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -202,15 +201,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(comparisonCooperationStrategyResult);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <c>null</c> <see cref="System.Object"/>
         /// will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithNullObject_ReturnsFalse()
+        [Fact]
+        public void EqualsWithNullObjectReturnsFalse()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -220,15 +219,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals((object)comparisonCooperationStrategyResult);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with equal <see cref="CooperationStrategyResult"/>
         /// instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithEqualCooperationStrategyResult_ReturnsTrue()
+        [Fact]
+        public void EqualsWithEqualCooperationStrategyResultReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -238,15 +237,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(equalCooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with equal <see cref="System.Object"/>
         /// instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithEqualObject_ReturnsTrue()
+        [Fact]
+        public void EqualsWithEqualObjectReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -256,15 +255,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals((object)equalCooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <see cref="CooperationStrategyResult"/>
         /// that is actually the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithStrategyThatIsSameInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithStrategyThatIsSameInstanceReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -273,15 +272,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals(cooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with an <see cref="System.Object"/>
         /// that is actually the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithObjectThatIsSameInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithObjectThatIsSameInstanceReturnsTrue()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -290,15 +289,15 @@
             var objectsAreEqual = cooperationStrategyResult.Equals((object)cooperationStrategyResult);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method with a <c>null</c>
         /// <see cref="CooperationStrategy"/> does not throw an exception.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithNullStrategy_DoesNotThrowException()
+        [Fact]
+        public void GetHashCodeWithNullStrategyDoesNotThrowException()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult { Strategy = null };
@@ -313,8 +312,8 @@
         /// Test that calling the GetHashCode method on two <see cref="CooperationStrategyResult"/>
         /// instances that have just been created will return equal hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithUnchangedNewInstances_ReturnsEqualHashCodes()
+        [Fact]
+        public void GetHashCodeWithUnchangedNewInstancesReturnsEqualHashCodes()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult();
@@ -325,7 +324,7 @@
             var otherHashCode = otherCooperationStrategyResult.GetHashCode();
 
             // Assert
-            Assert.AreEqual(hashCode, otherHashCode);
+            Assert.Equal(hashCode, otherHashCode);
         }
 
         /// <summary>
@@ -333,8 +332,8 @@
         /// instances that refer to the same cooperation strategy but a different cooperation choice
         /// will return equal hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithEqualValues_ReturnsEqualHashCodes()
+        [Fact]
+        public void GetHashCodeWithEqualValuesReturnsEqualHashCodes()
         {
             // Arrange
             var strategy = new NaiveCooperationStrategy();
@@ -346,15 +345,15 @@
             var otherHashCode = otherCooperationStrategyResult.GetHashCode();
 
             // Assert
-            Assert.AreEqual(hashCode, otherHashCode);
+            Assert.Equal(hashCode, otherHashCode);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on two <see cref="CooperationStrategyResult"/>
         /// instances that have different choices made will return different hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithDifferentChoiceMade_ReturnsDifferentHashCodes()
+        [Fact]
+        public void GetHashCodeWithDifferentChoiceMadeReturnsDifferentHashCodes()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult { ChoiceMade = CooperationChoice.Cooperate };
@@ -365,15 +364,15 @@
             var otherHashCode = otherCooperationStrategyResult.GetHashCode();
 
             // Assert
-            Assert.AreNotEqual(hashCode, otherHashCode);
+            Assert.NotEqual(hashCode, otherHashCode);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on two <see cref="CooperationStrategyResult"/>
         /// instances that have different cooperation strategies will return different hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithDifferentCooperationStrategies_ReturnsDifferentHashCodes()
+        [Fact]
+        public void GetHashCodeWithDifferentCooperationStrategiesReturnsDifferentHashCodes()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult { Strategy = new NaiveCooperationStrategy() };
@@ -384,15 +383,15 @@
             var otherHashCode = otherCooperationStrategyResult.GetHashCode();
 
             // Assert
-            Assert.AreNotEqual(hashCode, otherHashCode);
+            Assert.NotEqual(hashCode, otherHashCode);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on two <see cref="CooperationStrategyResult"/>
         /// instances that have different payoffs will return different hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithDifferentPayoff_ReturnsDifferentHashCodes()
+        [Fact]
+        public void GetHashCodeWithDifferentPayoffReturnsDifferentHashCodes()
         {
             // Arrange
             var cooperationStrategyResult = new CooperationStrategyResult { Payoff = CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect };
@@ -403,7 +402,7 @@
             var otherHashCode = otherCooperationStrategyResult.GetHashCode();
 
             // Assert
-            Assert.AreNotEqual(hashCode, otherHashCode);
+            Assert.NotEqual(hashCode, otherHashCode);
         }
     }
 }

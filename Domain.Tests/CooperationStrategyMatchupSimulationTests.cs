@@ -1,37 +1,36 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
 
-    using StudioDonder.PrisonersDilemma.Domain.Tests.Helpers;
+    using Xunit;
 
     /// <summary>
     /// Tests for the <see cref="CooperationStrategyMatchupSimulation"/> class.
     /// </summary>
-    [TestClass]
     public class CooperationStrategyMatchupSimulationTests
     {
         /// <summary>
         /// Test that calling the constructor with a <c>null</c> cooperation strategy matchup
         /// will throw an exception.
         /// </summary>
-        [TestMethod, ExpectException]
-        public void Constructor_WithNullCooperationStrategyMatchup_ThrowsException()
+        [Fact]
+        public void ConstructorWithNullCooperationStrategyMatchupThrowsArgumentNullException()
         {
             // Arrange
             CooperationStrategyMatchup nullCooperationStrategyMatchup = null;
 
             // Act
-            new CooperationStrategyMatchupSimulation(nullCooperationStrategyMatchup);
 
             // Assert
+            Assert.Throws<ArgumentNullException>(() => new CooperationStrategyMatchupSimulation(nullCooperationStrategyMatchup));
         }
 
         /// <summary>
         /// Test that the Matchup property returns the <see cref="CooperationStrategyMatchup"/>
         /// instance supplied to the constructor.
         /// </summary>
-        [TestMethod]
-        public void CooperationStrategyMatchup_ReturnsCooperationStrategyMatchup_SuppliedToConstructor()
+        [Fact]
+        public void CooperationStrategyMatchupReturnsCooperationStrategyMatchupSuppliedToConstructor()
         {
             // Arrange
             var strategyA = new NaiveCooperationStrategy();
@@ -43,15 +42,15 @@
             var simulation = new CooperationStrategyMatchupSimulation(matchup);
 
             // Assert
-            Assert.AreEqual(matchup, simulation.Matchup);
+            Assert.Equal(matchup, simulation.Matchup);
         }
 
         /// <summary>
         /// Test that calling the Simulate method with a number of rounds equal to zero 
         /// will throw an exception.
         /// </summary>
-        [TestMethod, ExpectException]
-        public void Simulate_WithNumberOfRoundsEqualToZero_ThrowsException()
+        [Fact]
+        public void SimulateWithNumberOfRoundsEqualToZeroThrowsArgumentException()
         {
             // Arrange
             var matchup = new CooperationStrategyMatchup(
@@ -60,17 +59,17 @@
             const int NumberOfRounds = 0;
 
             // Act
-            matchupSimulation.Simulate(NumberOfRounds);
 
             // Assert
+            Assert.Throws<ArgumentException>(() => matchupSimulation.Simulate(NumberOfRounds));
         }
 
         /// <summary>
         /// Test that calling the Simulate method with a number of rounds less than zero 
         /// will throw an exception.
         /// </summary>
-        [TestMethod, ExpectException]
-        public void Simulate_WithNumberOfRoundsLessThanZero_ThrowsException()
+        [Fact]
+        public void SimulateWithNumberOfRoundsLessThanZeroThrowsArgumentException()
         {
             // Arrange
             var matchup = new CooperationStrategyMatchup(
@@ -79,17 +78,17 @@
             const int NumberOfRounds = -1;
 
             // Act
-            matchupSimulation.Simulate(NumberOfRounds);
 
             // Assert
+            Assert.Throws<ArgumentException>(() => matchupSimulation.Simulate(NumberOfRounds));
         }
 
         /// <summary>
         /// Test that calling the Simulate method with a specific number of rounds will
         /// return a number of matchup results equal to the number of rounds.
         /// </summary>
-        [TestMethod]
-        public void Simulate_WillReturnSimulationResultsWithNumberOfMatchupResultsEqualToSuppliedNumberOfRounds()
+        [Fact]
+        public void SimulateWillReturnSimulationResultsWithNumberOfMatchupResultsEqualToSuppliedNumberOfRounds()
         {
             // Arrange
             var matchup = new CooperationStrategyMatchup(
@@ -101,14 +100,14 @@
             var simulationResults = matchupSimulation.Simulate(NumberOfRounds);
 
             // Assert
-            Assert.AreEqual(NumberOfRounds, simulationResults.MatchupResults.Count);
+            Assert.Equal(NumberOfRounds, simulationResults.MatchupResults.Count);
         }
 
         /// <summary>
         /// Test that calling the Simulate method will return the correct matchup results.
         /// </summary>
-        [TestMethod]
-        public void Simulate_WillReturnCorrectMatchupResults()
+        [Fact]
+        public void SimulateWillReturnCorrectMatchupResults()
         {
             // Arrange
             var matchup = new CooperationStrategyMatchup(
@@ -120,8 +119,8 @@
             var simulationResults = matchupSimulation.Simulate(NumberOfRounds);
 
             // Assert
-            Assert.AreEqual(CooperationChoice.Cooperate, simulationResults.MatchupResults[0].StrategyAResult.ChoiceMade);
-            Assert.AreEqual(CooperationChoice.Defect, simulationResults.MatchupResults[1].StrategyBResult.ChoiceMade);
+            Assert.Equal(CooperationChoice.Cooperate, simulationResults.MatchupResults[0].StrategyAResult.ChoiceMade);
+            Assert.Equal(CooperationChoice.Defect, simulationResults.MatchupResults[1].StrategyBResult.ChoiceMade);
         }
     }
 }

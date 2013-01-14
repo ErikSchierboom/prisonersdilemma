@@ -1,19 +1,18 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
     /// <summary>
     /// Tests for the <see cref="CooperationChoicesPayoff"/> class.
     /// </summary>
-    [TestClass]
     public class CooperationChoicesPayoffTests
     {
         /// <summary>
         /// Test that calling the constructor will automatically initialize the PayoffForCooperateAndCooperate
         /// property to the correct default value.
         /// </summary>
-        [TestMethod]
-        public void Constructor_InitializesPayoffForCooperateAndCooperate_ToDefaultValue()
+        [Fact]
+        public void ConstructorInitializesPayoffForCooperateAndCooperateToDefaultValue()
         {
             // Arrange
 
@@ -21,15 +20,15 @@
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
 
             // Assert
-            Assert.AreEqual(CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate, cooperationChoicesPayoff.PayoffForCooperateAndCooperate);
+            Assert.Equal(CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate, cooperationChoicesPayoff.PayoffForCooperateAndCooperate);
         }
 
         /// <summary>
         /// Test that calling the constructor will automatically initialize the PayoffForCooperateAndDefect
         /// property to the correct default value.
         /// </summary>
-        [TestMethod]
-        public void Constructor_InitializesPayoffForCooperateAndDefect_ToDefaultValue()
+        [Fact]
+        public void ConstructorInitializesPayoffForCooperateAndDefectToDefaultValue()
         {
             // Arrange
 
@@ -37,15 +36,15 @@
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
 
             // Assert
-            Assert.AreEqual(CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect, cooperationChoicesPayoff.PayoffForCooperateAndDefect);
+            Assert.Equal(CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect, cooperationChoicesPayoff.PayoffForCooperateAndDefect);
         }
 
         /// <summary>
         /// Test that calling the constructor will automatically initialize the PayoffForDefectAndCooperate
         /// property to the correct default value.
         /// </summary>
-        [TestMethod]
-        public void Constructor_InitializesPayoffForDefectAndCooperate_ToDefaultValue()
+        [Fact]
+        public void ConstructorInitializesPayoffForDefectAndCooperateToDefaultValue()
         {
             // Arrange
 
@@ -53,15 +52,15 @@
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
 
             // Assert
-            Assert.AreEqual(CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate, cooperationChoicesPayoff.PayoffForDefectAndCooperate);
+            Assert.Equal(CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate, cooperationChoicesPayoff.PayoffForDefectAndCooperate);
         }
 
         /// <summary>
         /// Test that calling the constructor will automatically initialize the PayoffForDefectAndDefect
         /// property to the correct default value.
         /// </summary>
-        [TestMethod]
-        public void Constructor_InitializesPayoffForDefectAndDefect_ToDefaultValue()
+        [Fact]
+        public void ConstructorInitializesPayoffForDefectAndDefectToDefaultValue()
         {
             // Arrange
 
@@ -69,15 +68,15 @@
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
 
             // Assert
-            Assert.AreEqual(CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect, cooperationChoicesPayoff.PayoffForDefectAndDefect);
+            Assert.Equal(CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect, cooperationChoicesPayoff.PayoffForDefectAndDefect);
         }
 
         /// <summary>
         /// Test that calling the Calculate method with both choices equal to 
         /// <see cref="CooperationChoice.Cooperate"/> will return the correct payoff.
         /// </summary>
-        [TestMethod]
-        public void CalculatePayoff_WithCooperationChoiceIsCooperateAndOtherCooperationChoiceIsCooperate_ReturnsCorrectPayoff()
+        [Fact]
+        public void CalculatePayoffWithCooperationChoiceIsCooperateAndOtherCooperationChoiceIsCooperateReturnsCorrectPayoff()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -86,7 +85,7 @@
             var payoff = cooperationChoicesPayoff.Calculate(CooperationChoice.Cooperate, CooperationChoice.Cooperate);
 
             // Assert
-            Assert.AreEqual(CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate, payoff);
+            Assert.Equal(CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate, payoff);
         }
 
         /// <summary>
@@ -94,8 +93,8 @@
         /// is <see cref="CooperationChoice.Cooperate"/> and the other is <see cref="CooperationChoice.Defect"/> 
         /// will return the correct payoff.
         /// </summary>
-        [TestMethod]
-        public void CalculatePayoff_WithCooperationChoiceIsCooperateAndOtherCooperationChoiceIsDefect_ReturnsCorrectPayoff()
+        [Fact]
+        public void CalculatePayoffWithCooperationChoiceIsCooperateAndOtherCooperationChoiceIsDefectReturnsCorrectPayoff()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -104,7 +103,7 @@
             var payoff = cooperationChoicesPayoff.Calculate(CooperationChoice.Cooperate, CooperationChoice.Defect);
 
             // Assert
-            Assert.AreEqual(CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect, payoff);
+            Assert.Equal(CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect, payoff);
         }
 
         /// <summary>
@@ -112,8 +111,8 @@
         /// is <see cref="CooperationChoice.Defect"/> and the other is <see cref="CooperationChoice.Cooperate"/> 
         /// will return the correct payoff.
         /// </summary>
-        [TestMethod]
-        public void CalculatePayoff_WithCooperationChoiceIsDefectAndOtherCooperationChoiceIsCooperate_ReturnsCorrectPayoff()
+        [Fact]
+        public void CalculatePayoffWithCooperationChoiceIsDefectAndOtherCooperationChoiceIsCooperateReturnsCorrectPayoff()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -122,15 +121,15 @@
             var payoff = cooperationChoicesPayoff.Calculate(CooperationChoice.Defect, CooperationChoice.Cooperate);
 
             // Assert
-            Assert.AreEqual(CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate, payoff);
+            Assert.Equal(CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate, payoff);
         }
 
         /// <summary>
         /// Test that calling the Calculate method with both choices equal to 
         /// <see cref="CooperationChoice.Defect"/> will return the correct payoff.
         /// </summary>
-        [TestMethod]
-        public void CalculatePayoff_WithCooperationChoiceIsDefectAndOtherCooperationChoiceIsDefect_ReturnsCorrectPayoff()
+        [Fact]
+        public void CalculatePayoffWithCooperationChoiceIsDefectAndOtherCooperationChoiceIsDefectReturnsCorrectPayoff()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -139,15 +138,15 @@
             var payoff = cooperationChoicesPayoff.Calculate(CooperationChoice.Defect, CooperationChoice.Defect);
 
             // Assert
-            Assert.AreEqual(CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect, payoff);
+            Assert.Equal(CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect, payoff);
         }
 
         /// <summary>
         /// Test that calling the Calculate method with both choices equal to 
         /// <see cref="CooperationChoice.Cooperate"/> and a changed payoff will return the correct payoff.
         /// </summary>
-        [TestMethod]
-        public void CalculatePayoff_WithChangedPayoffForCooperationChoiceIsCooperateAndOtherCooperationChoiceIsCooperate_ReturnsCorrectPayoff()
+        [Fact]
+        public void CalculatePayoffWithChangedPayoffForCooperationChoiceIsCooperateAndOtherCooperationChoiceIsCooperateReturnsCorrectPayoff()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -158,7 +157,7 @@
             var payoff = cooperationChoicesPayoff.Calculate(CooperationChoice.Cooperate, CooperationChoice.Cooperate);
 
             // Assert
-            Assert.AreEqual(NewPayoffForCooperateAndCooperate, payoff);
+            Assert.Equal(NewPayoffForCooperateAndCooperate, payoff);
         }
 
         /// <summary>
@@ -166,8 +165,8 @@
         /// is <see cref="CooperationChoice.Cooperate"/> and the other is <see cref="CooperationChoice.Defect"/> 
         /// and a changed payoff will return the correct payoff.
         /// </summary>
-        [TestMethod]
-        public void CalculatePayoff_WithChangedPayoffForCooperationChoiceIsCooperateAndOtherCooperationChoiceIsDefect_ReturnsCorrectPayoff()
+        [Fact]
+        public void CalculatePayoffWithChangedPayoffForCooperationChoiceIsCooperateAndOtherCooperationChoiceIsDefectReturnsCorrectPayoff()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -178,7 +177,7 @@
             var payoff = cooperationChoicesPayoff.Calculate(CooperationChoice.Cooperate, CooperationChoice.Defect);
 
             // Assert
-            Assert.AreEqual(NewPayoffForCooperateAndDefect, payoff);
+            Assert.Equal(NewPayoffForCooperateAndDefect, payoff);
         }
 
         /// <summary>
@@ -186,8 +185,8 @@
         /// is <see cref="CooperationChoice.Defect"/> and the other is <see cref="CooperationChoice.Cooperate"/> 
         /// and a changed payoff will return the correct payoff.
         /// </summary>
-        [TestMethod]
-        public void CalculatePayoff_WithChangedPayoffForCooperationChoiceIsDefectAndOtherCooperationChoiceIsCooperate_ReturnsCorrectPayoff()
+        [Fact]
+        public void CalculatePayoffWithChangedPayoffForCooperationChoiceIsDefectAndOtherCooperationChoiceIsCooperateReturnsCorrectPayoff()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -198,15 +197,15 @@
             var payoff = cooperationChoicesPayoff.Calculate(CooperationChoice.Defect, CooperationChoice.Cooperate);
 
             // Assert
-            Assert.AreEqual(NewPayoffForDefectAndCooperate, payoff);
+            Assert.Equal(NewPayoffForDefectAndCooperate, payoff);
         }
 
         /// <summary>
         /// Test that calling the Calculate method with both choices equal to 
         /// <see cref="CooperationChoice.Defect"/> and a changed payoff will return the correct payoff.
         /// </summary>
-        [TestMethod]
-        public void CalculatePayoff_WithChangedPayoffForCooperationChoiceIsDefectAndOtherCooperationChoiceIsDefect_ReturnsCorrectPayoff()
+        [Fact]
+        public void CalculatePayoffWithChangedPayoffForCooperationChoiceIsDefectAndOtherCooperationChoiceIsDefectReturnsCorrectPayoff()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -217,15 +216,15 @@
             var payoff = cooperationChoicesPayoff.Calculate(CooperationChoice.Defect, CooperationChoice.Defect);
 
             // Assert
-            Assert.AreEqual(NewPayoffForDefectAndDefect, payoff);
+            Assert.Equal(NewPayoffForDefectAndDefect, payoff);
         }
 
         /// <summary>
         /// Test that calling the Equals method on two new <see cref="CooperationChoicesPayoff"/>
         /// instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnchangedNewCooperationChoicesPayoffInstances_ReturnsTrue()
+        [Fact]
+        public void EqualsWithUnchangedNewCooperationChoicesPayoffInstancesReturnsTrue()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -235,15 +234,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals(otherCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method on two new <see cref="CooperationChoicesPayoff"/>
         /// instances with different payoffs for cooperate and cooperate will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnequalPayoffForCooperateAndCooperate_ReturnsFalse()
+        [Fact]
+        public void EqualsWithUnequalPayoffForCooperateAndCooperateReturnsFalse()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff { PayoffForCooperateAndCooperate = 1 };
@@ -253,15 +252,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals(otherCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method on two new <see cref="CooperationChoicesPayoff"/>
         /// instances with different payoffs for cooperate and defect will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnequalPayoffForCooperateAndDefect_ReturnsFalse()
+        [Fact]
+        public void EqualsWithUnequalPayoffForCooperateAndDefectReturnsFalse()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff { PayoffForCooperateAndDefect = 1 };
@@ -271,15 +270,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals(otherCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method on two new <see cref="CooperationChoicesPayoff"/>
         /// instances with different payoffs for defect and cooperate will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnequalPayoffForDefectAndCooperate_ReturnsFalse()
+        [Fact]
+        public void EqualsWithUnequalPayoffForDefectAndCooperateReturnsFalse()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff { PayoffForDefectAndCooperate = 1 };
@@ -289,15 +288,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals(otherCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method on two new <see cref="CooperationChoicesPayoff"/>
         /// instances with different payoffs for defect and defect will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnequalPayoffForDefectAndDefect_ReturnsFalse()
+        [Fact]
+        public void EqualsWithUnequalPayoffForDefectAndDefectReturnsFalse()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff { PayoffForDefectAndDefect = 1 };
@@ -307,15 +306,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals(otherCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method on two new <see cref="System.Object"/>
         /// instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithUnchangedNewObjectInstances_ReturnsTrue()
+        [Fact]
+        public void EqualsWithUnchangedNewObjectInstancesReturnsTrue()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -325,15 +324,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals((object)otherCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <see cref="CooperationChoicesPayoff"/>
         /// that is actually the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithSameCooperationChoicesPayoffInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithSameCooperationChoicesPayoffInstanceReturnsTrue()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -342,15 +341,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals(cooperationChoicesPayoff);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <see cref="System.Object"/>
         /// that is actually the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithSameObjectInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithSameObjectInstanceReturnsTrue()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -359,15 +358,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals((object)cooperationChoicesPayoff);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <c>null</c> <see cref="CooperationChoicesPayoff"/>
         /// will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithNullCooperationChoicesPayoff_ReturnsFalse()
+        [Fact]
+        public void EqualsWithNullCooperationChoicesPayoffReturnsFalse()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -377,15 +376,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals(comparisonCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <c>null</c> <see cref="System.Object"/>
         /// will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithNullObject_ReturnsFalse()
+        [Fact]
+        public void EqualsWithNullObjectReturnsFalse()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -395,15 +394,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals((object)comparisonCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with equal <see cref="CooperationChoicesPayoff"/>
         /// instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithEqualCooperationChoicesPayoff_ReturnsTrue()
+        [Fact]
+        public void EqualsWithEqualCooperationChoicesPayoffReturnsTrue()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -413,15 +412,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals(equalCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with equal <see cref="System.Object"/>
         /// instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithEqualObject_ReturnsTrue()
+        [Fact]
+        public void EqualsWithEqualObjectReturnsTrue()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -431,15 +430,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals((object)equalCooperationChoicesPayoff);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with a <see cref="CooperationChoicesPayoff"/>
         /// that is actually the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithCooperationChoicesPayoffThatIsSameInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithCooperationChoicesPayoffThatIsSameInstanceReturnsTrue()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -448,15 +447,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals(cooperationChoicesPayoff);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with an <see cref="System.Object"/>
         /// that is actually the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithObjectThatIsSameInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithObjectThatIsSameInstanceReturnsTrue()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -465,15 +464,15 @@
             var objectsAreEqual = cooperationChoicesPayoff.Equals((object)cooperationChoicesPayoff);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on two <see cref="CooperationChoicesPayoff"/>
         /// instances that have just been created will return equal hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithUnchangedNewInstances_ReturnsEqualHashCodes()
+        [Fact]
+        public void GetHashCodeWithUnchangedNewInstancesReturnsEqualHashCodes()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff();
@@ -484,7 +483,7 @@
             var otherHashCode = otherCooperationChoicesPayoff.GetHashCode();
 
             // Assert
-            Assert.AreEqual(hashCode, otherHashCode);
+            Assert.Equal(hashCode, otherHashCode);
         }
 
         /// <summary>
@@ -492,131 +491,131 @@
         /// instances that refer to the same cooperation strategy but a different cooperation choice
         /// will return equal hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithEqualValues_ReturnsEqualHashCodes()
+        [Fact]
+        public void GetHashCodeWithEqualValuesReturnsEqualHashCodes()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForCooperateAndCooperate = CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate,
-                    PayoffForCooperateAndDefect = CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect,
-                    PayoffForDefectAndCooperate = CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate,
-                    PayoffForDefectAndDefect = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect,
-                };
+                                               {
+                                                   PayoffForCooperateAndCooperate = CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate,
+                                                   PayoffForCooperateAndDefect = CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect,
+                                                   PayoffForDefectAndCooperate = CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate,
+                                                   PayoffForDefectAndDefect = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect,
+                                               };
             var otherCooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForCooperateAndCooperate = CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate,
-                    PayoffForCooperateAndDefect = CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect,
-                    PayoffForDefectAndCooperate = CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate,
-                    PayoffForDefectAndDefect = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect,
-                };
+                                                    {
+                                                        PayoffForCooperateAndCooperate = CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate,
+                                                        PayoffForCooperateAndDefect = CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect,
+                                                        PayoffForDefectAndCooperate = CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate,
+                                                        PayoffForDefectAndDefect = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect,
+                                                    };
 
             // Act
             var hashCode = cooperationChoicesPayoff.GetHashCode();
             var otherHashCode = otherCooperationChoicesPayoff.GetHashCode();
 
             // Assert
-            Assert.AreEqual(hashCode, otherHashCode);
+            Assert.Equal(hashCode, otherHashCode);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on two <see cref="CooperationChoicesPayoff"/>
         /// instances that have different payoffs for cooperate and cooperate will return different hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithDifferentPayoffForCooperateAndCooperate_ReturnsDifferentHashCodes()
+        [Fact]
+        public void GetHashCodeWithDifferentPayoffForCooperateAndCooperateReturnsDifferentHashCodes()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForCooperateAndCooperate = CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate,
-                };
+                                               {
+                                                   PayoffForCooperateAndCooperate = CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate,
+                                               };
             var otherCooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForCooperateAndCooperate = CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate + 1,
-                };
+                                                    {
+                                                        PayoffForCooperateAndCooperate = CooperationChoicesPayoff.DefaultPayoffForCooperateAndCooperate + 1,
+                                                    };
 
             // Act
             var hashCode = cooperationChoicesPayoff.GetHashCode();
             var otherHashCode = otherCooperationChoicesPayoff.GetHashCode();
 
             // Assert
-            Assert.AreNotEqual(hashCode, otherHashCode);
+            Assert.NotEqual(hashCode, otherHashCode);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on two <see cref="CooperationChoicesPayoff"/>
         /// instances that have different payoffs for cooperate and defect will return different hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithDifferentPayoffForCooperateAndDefect_ReturnsDifferentHashCodes()
+        [Fact]
+        public void GetHashCodeWithDifferentPayoffForCooperateAndDefectReturnsDifferentHashCodes()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForCooperateAndDefect = CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect,
-                };
+                                               {
+                                                   PayoffForCooperateAndDefect = CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect,
+                                               };
             var otherCooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForCooperateAndDefect = CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect + 1,
-                };
+                                                    {
+                                                        PayoffForCooperateAndDefect = CooperationChoicesPayoff.DefaultPayoffForCooperateAndDefect + 1,
+                                                    };
 
             // Act
             var hashCode = cooperationChoicesPayoff.GetHashCode();
             var otherHashCode = otherCooperationChoicesPayoff.GetHashCode();
 
             // Assert
-            Assert.AreNotEqual(hashCode, otherHashCode);
+            Assert.NotEqual(hashCode, otherHashCode);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on two <see cref="CooperationChoicesPayoff"/>
         /// instances that have different payoffs for defect and cooperate will return different hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithDifferentPayoffForDefectAndCooperate_ReturnsDifferentHashCodes()
+        [Fact]
+        public void GetHashCodeWithDifferentPayoffForDefectAndCooperateReturnsDifferentHashCodes()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForDefectAndCooperate = CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate,
-                };
+                                               {
+                                                   PayoffForDefectAndCooperate = CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate,
+                                               };
             var otherCooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForDefectAndCooperate = CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate + 1,
-                };
+                                                    {
+                                                        PayoffForDefectAndCooperate = CooperationChoicesPayoff.DefaultPayoffForDefectAndCooperate + 1,
+                                                    };
 
             // Act
             var hashCode = cooperationChoicesPayoff.GetHashCode();
             var otherHashCode = otherCooperationChoicesPayoff.GetHashCode();
 
             // Assert
-            Assert.AreNotEqual(hashCode, otherHashCode);
+            Assert.NotEqual(hashCode, otherHashCode);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on two <see cref="CooperationChoicesPayoff"/>
         /// instances that have different payoffs for defect and defect will return different hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithDifferentPayoffForDefectAndDefect_ReturnsDifferentHashCodes()
+        [Fact]
+        public void GetHashCodeWithDifferentPayoffForDefectAndDefectReturnsDifferentHashCodes()
         {
             // Arrange
             var cooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForDefectAndDefect = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect,
-                };
+                                               {
+                                                   PayoffForDefectAndDefect = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect,
+                                               };
             var otherCooperationChoicesPayoff = new CooperationChoicesPayoff
-                {
-                    PayoffForDefectAndDefect = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect + 1,
-                };
+                                                    {
+                                                        PayoffForDefectAndDefect = CooperationChoicesPayoff.DefaultPayoffForDefectAndDefect + 1,
+                                                    };
 
             // Act
             var hashCode = cooperationChoicesPayoff.GetHashCode();
             var otherHashCode = otherCooperationChoicesPayoff.GetHashCode();
 
             // Assert
-            Assert.AreNotEqual(hashCode, otherHashCode);
+            Assert.NotEqual(hashCode, otherHashCode);
         }
     }
 }

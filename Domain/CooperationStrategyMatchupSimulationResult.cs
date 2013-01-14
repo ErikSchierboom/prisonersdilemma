@@ -1,8 +1,9 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain
 {
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
     using System.Linq;
+
+    using Validation;
 
     /// <summary>
     /// The result of a cooperation strategy matchup simulation.
@@ -14,11 +15,10 @@
         /// </summary>
         /// <param name="matchup">The cooperation strategy matchup.</param>
         /// <param name="matchupResults">The matchup results.</param>
-        public CooperationStrategyMatchupSimulationResult(
-            CooperationStrategyMatchup matchup, IList<CooperationStrategyMatchupResult> matchupResults)
+        public CooperationStrategyMatchupSimulationResult(CooperationStrategyMatchup matchup, IList<CooperationStrategyMatchupResult> matchupResults)
         {
-            Contract.Requires(matchup != null);
-            Contract.Requires(matchupResults != null);
+            Requires.NotNull(matchup, "matchup");
+            Requires.NotNull(matchupResults, "matchupResults");
 
             this.Matchup = matchup;
             this.MatchupResults = matchupResults;
@@ -65,13 +65,6 @@
             {
                 return this.MatchupResults.Sum(matchupResult => matchupResult.StrategyBResult.Payoff);
             }
-        }
-
-        [ContractInvariantMethod]
-        private void ObjectInvariant()
-        {
-            Contract.Invariant(this.Matchup != null);
-            Contract.Invariant(this.MatchupResults != null);
         }
     }
 }

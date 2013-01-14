@@ -1,6 +1,6 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain
 {
-    using System.Diagnostics.Contracts;
+    using Validation;
 
     /// <summary>
     /// The result of a cooperation strategy matchup.
@@ -15,8 +15,8 @@
         public CooperationStrategyMatchupResult(
             CooperationStrategyResult strategyAResult, CooperationStrategyResult strategyBResult)
         {
-            Contract.Requires(strategyAResult != null);
-            Contract.Requires(strategyBResult != null);
+            Requires.NotNull(strategyAResult, "strategyAResult");
+            Requires.NotNull(strategyBResult, "strategyBResult");
 
             this.StrategyAResult = strategyAResult;
             this.StrategyBResult = strategyBResult;
@@ -31,12 +31,5 @@
         /// Gets the result for strategy B.
         /// </summary>
         public CooperationStrategyResult StrategyBResult { get; private set; }
-
-        [ContractInvariantMethod]
-        private void ObjectInvariant()
-        {
-            Contract.Invariant(this.StrategyAResult != null);
-            Contract.Invariant(this.StrategyBResult != null);
-        }
     }
 }

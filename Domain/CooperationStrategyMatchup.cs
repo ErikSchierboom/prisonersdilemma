@@ -1,7 +1,8 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain
 {
     using System;
-    using System.Diagnostics.Contracts;
+
+    using Validation;
 
     /// <summary>
     /// This class described a matchup between cooperation strategies.
@@ -19,9 +20,9 @@
             CooperationStrategy strategyB,
             CooperationChoicesPayoff cooperationChoicesPayoff)
         {
-            Contract.Requires(strategyA != null);
-            Contract.Requires(strategyB != null);
-            Contract.Requires(cooperationChoicesPayoff != null);
+            Requires.NotNull(strategyA, "strategyA");
+            Requires.NotNull(strategyB, "strategyB");
+            Requires.NotNull(cooperationChoicesPayoff, "cooperationChoicesPayoff");
 
             this.StrategyA = strategyA;
             this.StrategyB = strategyB;
@@ -49,11 +50,7 @@
         /// <returns>The matchup result.</returns>
         public CooperationStrategyMatchupResult Play()
         {
-            Contract.Ensures(Contract.Result<CooperationStrategyMatchupResult>() != null);
-
-            return this.CreateCooperationStrategyMatchupResult(
-                this.StrategyA.Choose(CooperationChoice.None),
-                this.StrategyB.Choose(CooperationChoice.None));
+            return this.CreateCooperationStrategyMatchupResult(this.StrategyA.Choose(CooperationChoice.None), this.StrategyB.Choose(CooperationChoice.None));
         }
 
         /// <summary>
@@ -65,8 +62,7 @@
         /// </returns>
         public CooperationStrategyMatchupResult Play(CooperationStrategyMatchupResult lastMatchupResult)
         {
-            Contract.Requires(lastMatchupResult != null);
-            Contract.Ensures(Contract.Result<CooperationStrategyMatchupResult>() != null);
+            Requires.NotNull(lastMatchupResult, "lastMatchupResult");
 
             return this.CreateCooperationStrategyMatchupResult(
                 this.StrategyA.Choose(lastMatchupResult.StrategyBResult.ChoiceMade),
@@ -133,7 +129,7 @@
         /// </returns>
         private bool StrategiesEqualOrFlipped(CooperationStrategyMatchup other)
         {
-            Contract.Requires(other != null);
+            Requires.NotNull(other, "other");
 
             return
                 (this.StrategyA.Equals(other.StrategyA) && this.StrategyB.Equals(other.StrategyB)) ||
@@ -164,14 +160,6 @@
                 };
 
             return new CooperationStrategyMatchupResult(strategyAResult, strategyBResult);
-        }
-
-        [ContractInvariantMethod]
-        private void ObjectInvariant()
-        {
-            Contract.Invariant(this.StrategyA != null);
-            Contract.Invariant(this.StrategyB != null);
-            Contract.Invariant(this.CooperationChoicesPayoff != null);
         }
     }
 }

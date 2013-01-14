@@ -1,8 +1,9 @@
 namespace StudioDonder.PrisonersDilemma.Domain
 {
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
     using System.Linq;
+
+    using Validation;
 
     /// <summary>
     /// Evaluate a set of cooperation strategies for their relative fitness.
@@ -24,7 +25,7 @@ namespace StudioDonder.PrisonersDilemma.Domain
 		/// <param name="cooperationStrategyRepository">The cooperation strategy repository.</param>
         public CooperationStrategiesFitnessEvaluator(CooperationStrategyRepository cooperationStrategyRepository)
         {
-			Contract.Requires(cooperationStrategyRepository != null);
+			Requires.NotNull(cooperationStrategyRepository, "cooperationStrategyRepository");
 
             this.CooperationChoicesPayoff = new CooperationChoicesPayoff();
         	this.NumberOfRounds = DefaultNumberOfRounds;
@@ -54,9 +55,9 @@ namespace StudioDonder.PrisonersDilemma.Domain
 		/// </returns>
         public IList<CooperationStrategyFitness> Evaluate()
         {
-			Contract.Requires(this.CooperationStrategies != null);
-			Contract.Requires(this.CooperationChoicesPayoff != null);
-			Contract.Requires(this.NumberOfRounds > 0);
+            Verify.Operation(this.CooperationStrategies != null, "CooperationStrategies must not be null.");
+            Verify.Operation(this.CooperationChoicesPayoff != null, "CooperationChoicesPayoff must not be null.");
+            Verify.Operation(this.NumberOfRounds > 0, "NumberOfRounds must be greater than zero.");
 
 			var fitnesses = new List<CooperationStrategyFitness>(this.CooperationStrategies.Count());
             var simulationResults = new List<CooperationStrategyMatchupSimulationResult>();
@@ -92,9 +93,8 @@ namespace StudioDonder.PrisonersDilemma.Domain
         /// <returns>The matchups.</returns>
         private IEnumerable<CooperationStrategyMatchup> GetMatchups()
         {
-			Contract.Requires(this.CooperationStrategies != null);
-            Contract.Requires(this.CooperationChoicesPayoff != null);
-            Contract.Ensures(Contract.Result<IEnumerable<CooperationStrategyMatchup>>() != null);
+            Verify.Operation(this.CooperationStrategies != null, "CooperationStrategies must not be null.");
+            Verify.Operation(this.CooperationChoicesPayoff != null, "CooperationChoicesPayoff must not be null.");
 
             var strategyMatchups = new HashSet<CooperationStrategyMatchup>();
 
@@ -127,8 +127,8 @@ namespace StudioDonder.PrisonersDilemma.Domain
         /// <returns>The payoff.</returns>
         private static int CalculateTotalPayoff(CooperationStrategy cooperationStrategy, List<CooperationStrategyMatchupSimulationResult> simulationResults)
         {
-            Contract.Requires(cooperationStrategy != null);
-            Contract.Requires(simulationResults != null);
+            Requires.NotNull(cooperationStrategy, "cooperationStrategy");
+            Requires.NotNull(simulationResults, "simulationResults");
 
             return
                 simulationResults
@@ -137,14 +137,6 @@ namespace StudioDonder.PrisonersDilemma.Domain
                 simulationResults
                     .Where(simulationResult => simulationResult.Matchup.StrategyB == cooperationStrategy)
                     .Sum(simulationResult => simulationResult.PayoffForStrategyB);
-        }
-
-        [ContractInvariantMethod]
-        private void ObjectInvariant()
-        {
-            Contract.Invariant(this.CooperationChoicesPayoff != null);
-            Contract.Invariant(this.CooperationStrategies != null);
-			Contract.Invariant(this.NumberOfRounds > 0);
         }
     }
 }

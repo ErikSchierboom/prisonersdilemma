@@ -1,6 +1,6 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain
 {
-	using System.Diagnostics.Contracts;
+    using Validation;
 
     /// <summary>
     /// The fitness of a specific cooperation strategy.
@@ -14,7 +14,7 @@
         /// <param name="totalPayoff">The total payoff.</param>
         public CooperationStrategyFitness(CooperationStrategy cooperationStrategy, int totalPayoff)
         {
-            Contract.Requires(cooperationStrategy != null);
+            Requires.NotNull(cooperationStrategy, "cooperationStrategy");
 
             this.Strategy = cooperationStrategy;
             this.TotalPayoff = totalPayoff;

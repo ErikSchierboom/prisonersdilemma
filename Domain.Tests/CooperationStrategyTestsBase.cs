@@ -1,18 +1,17 @@
 namespace StudioDonder.PrisonersDilemma.Domain.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
     /// <summary>
     /// The cooperation strategy tests base.
     /// </summary>
-    [TestClass]
     public abstract class CooperationStrategyTestsBase
     {
         /// <summary>
         /// Test that calling the Equals method on different instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithDifferentEvilCooperationStrategyInstances_ReturnsTrue()
+        [Fact]
+        public void EqualsWithDifferentEvilCooperationStrategyInstancesReturnsTrue()
         {
             // Arrange
             var strategy = this.CreateStrategy();
@@ -22,14 +21,14 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var objectsAreEqual = strategy.Equals(otherStrategy);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method on different instances will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithDifferentObjectInstances_ReturnsTrue()
+        [Fact]
+        public void EqualsWithDifferentObjectInstancesReturnsTrue()
         {
             // Arrange
             var strategy = this.CreateStrategy();
@@ -39,15 +38,15 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var objectsAreEqual = strategy.Equals((object)otherStrategy);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method on another cooperation strategy
         /// instance will return <c>false</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithOtherCooperationStrategyInstance_ReturnsFalse()
+        [Fact]
+        public void EqualsWithOtherCooperationStrategyInstanceReturnsFalse()
         {
             // Arrange
             var strategy = this.CreateStrategy();
@@ -57,14 +56,14 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var objectsAreEqual = strategy.Equals(otherStrategy);
 
             // Assert
-            Assert.IsFalse(objectsAreEqual);
+            Assert.False(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithSameEvilCooperationStrategyInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithSameEvilCooperationStrategyInstanceReturnsTrue()
         {
             // Arrange
             var strategy = this.CreateStrategy();
@@ -73,14 +72,14 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var objectsAreEqual = strategy.Equals(strategy);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the Equals method with the same instance will return <c>true</c>.
         /// </summary>
-        [TestMethod]
-        public void Equals_WithSameObjectInstance_ReturnsTrue()
+        [Fact]
+        public void EqualsWithSameObjectInstanceReturnsTrue()
         {
             // Arrange
             var strategy = new EvilCooperationStrategy();
@@ -89,15 +88,15 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var objectsAreEqual = strategy.Equals((object)strategy);
 
             // Assert
-            Assert.IsTrue(objectsAreEqual);
+            Assert.True(objectsAreEqual);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on another cooperation strategy
         /// instance will return different hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithOtherCooperationStrategyInstance_ReturnsDifferentHashCodes()
+        [Fact]
+        public void GetHashCodeWithOtherCooperationStrategyInstanceReturnsDifferentHashCodes()
         {
             // Arrange
             var strategy = this.CreateStrategy();
@@ -108,15 +107,15 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var otherHashcode = otherStrategy.GetHashCode();
 
             // Assert
-            Assert.AreNotEqual(hashcode, otherHashcode);
+            Assert.NotEqual(hashcode, otherHashcode);
         }
 
         /// <summary>
         /// Test that calling the GetHashCode method on another cooperation strategy
         /// instance of the same type will return the same hash codes.
         /// </summary>
-        [TestMethod]
-        public void GetHashCode_WithSameCooperationStrategyInstance_ReturnsSameHashCodes()
+        [Fact]
+        public void GetHashCodeWithSameCooperationStrategyInstanceReturnsSameHashCodes()
         {
             // Arrange
             var strategy = this.CreateStrategy();
@@ -127,14 +126,14 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var otherHashcode = otherStrategy.GetHashCode();
 
             // Assert
-            Assert.AreEqual(hashcode, otherHashcode);
+            Assert.Equal(hashcode, otherHashcode);
         }
 
         /// <summary>
         /// Test that the Name property is not <c>null</c>.
         /// </summary>
-        [TestMethod]
-        public void Name_IsNotNull()
+        [Fact]
+        public void NameIsNotNull()
         {
             // Arrange
 
@@ -142,14 +141,14 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var strategy = this.CreateStrategy();
 
             // Assert
-            Assert.IsNotNull(strategy.Name);
+            Assert.NotNull(strategy.Name);
         }
 
         /// <summary>
         /// Test that the Name property returns the correct name.
         /// </summary>
-        [TestMethod]
-        public void Name_ReturnsCorrectName()
+        [Fact]
+        public void NameReturnsCorrectName()
         {
             // Arrange
 
@@ -157,14 +156,14 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var strategy = this.CreateStrategy();
 
             // Assert
-            Assert.AreEqual(this.GetCorrectName(), strategy.Name);
+            Assert.Equal(this.GetCorrectName(), strategy.Name);
         }
 
         /// <summary>
         /// Test that the Description property is not <c>null</c>.
         /// </summary>
-        [TestMethod]
-        public void Description_IsNotNull()
+        [Fact]
+        public void DescriptionIsNotNull()
         {
             // Arrange
 
@@ -172,14 +171,14 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var strategy = this.CreateStrategy();
 
             // Assert
-            Assert.IsNotNull(strategy.Description);
+            Assert.NotNull(strategy.Description);
         }
 
         /// <summary>
         /// Test that the Description property returns the correct description.
         /// </summary>
-        [TestMethod]
-        public void Description_ReturnsCorrectDescription()
+        [Fact]
+        public void DescriptionReturnsCorrectDescription()
         {
             // Arrange
 
@@ -187,7 +186,7 @@ namespace StudioDonder.PrisonersDilemma.Domain.Tests
             var strategy = this.CreateStrategy();
 
             // Assert
-            Assert.AreEqual(this.GetCorrectDescription(), strategy.Description);
+            Assert.Equal(this.GetCorrectDescription(), strategy.Description);
         }
 
         /// <summary>

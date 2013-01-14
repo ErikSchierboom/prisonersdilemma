@@ -3,19 +3,18 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
     /// <summary>
     /// Tests for the <see cref="CooperationStrategyRepository"/> class.
     /// </summary>
-    [TestClass]
     public class CooperationStrategyRepositoryTests
     {
         /// <summary>
         /// Test that the GetAll methods returns all strategies.
         /// </summary>
-        [TestMethod]
-        public void GetAll_ReturnsAllStrategies()
+        [Fact]
+        public void GetAllReturnsAllStrategies()
         {
             // Arrange:
             var cooperationStrategyRepository = new CooperationStrategyRepository();
@@ -25,12 +24,12 @@
 
             // Assert
             var allStrategies = new List<CooperationStrategy>
-                {
-                    new NaiveCooperationStrategy(),
-                    new EvilCooperationStrategy(),
-                    new TitForTatCooperationStrategy(),
-                };
-            Assert.IsTrue(allStrategies.SequenceEqual(strategies));
+                                    {
+                                        new NaiveCooperationStrategy(),
+                                        new EvilCooperationStrategy(),
+                                        new TitForTatCooperationStrategy(),
+                                    };
+            Assert.True(allStrategies.SequenceEqual(strategies));
         }
     }
 }
