@@ -11,6 +11,9 @@
     /// </summary>
     public class IndexViewModel
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IndexViewModel"/> class.
+        /// </summary>
         public IndexViewModel()
         {
             // Set default values to prevent the user from having to come 
