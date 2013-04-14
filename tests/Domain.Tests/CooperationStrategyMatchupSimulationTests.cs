@@ -53,8 +53,7 @@
         public void SimulateWithNumberOfRoundsEqualToZeroThrowsArgumentException()
         {
             // Arrange
-            var matchup = new CooperationStrategyMatchup(
-                new NaiveCooperationStrategy(), new EvilCooperationStrategy(), new CooperationChoicesPayoff());
+            var matchup = new CooperationStrategyMatchup(new NaiveCooperationStrategy(), new EvilCooperationStrategy(), new CooperationChoicesPayoff());
             var matchupSimulation = new CooperationStrategyMatchupSimulation(matchup);
             const int NumberOfRounds = 0;
 
@@ -63,26 +62,7 @@
             // Assert
             Assert.Throws<ArgumentException>(() => matchupSimulation.Simulate(NumberOfRounds));
         }
-
-        /// <summary>
-        /// Test that calling the Simulate method with a number of rounds less than zero 
-        /// will throw an exception.
-        /// </summary>
-        [Fact]
-        public void SimulateWithNumberOfRoundsLessThanZeroThrowsArgumentException()
-        {
-            // Arrange
-            var matchup = new CooperationStrategyMatchup(
-                new NaiveCooperationStrategy(), new EvilCooperationStrategy(), new CooperationChoicesPayoff());
-            var matchupSimulation = new CooperationStrategyMatchupSimulation(matchup);
-            const int NumberOfRounds = -1;
-
-            // Act
-
-            // Assert
-            Assert.Throws<ArgumentException>(() => matchupSimulation.Simulate(NumberOfRounds));
-        }
-
+        
         /// <summary>
         /// Test that calling the Simulate method with a specific number of rounds will
         /// return a number of matchup results equal to the number of rounds.
@@ -91,8 +71,7 @@
         public void SimulateWillReturnSimulationResultsWithNumberOfMatchupResultsEqualToSuppliedNumberOfRounds()
         {
             // Arrange
-            var matchup = new CooperationStrategyMatchup(
-                new NaiveCooperationStrategy(), new EvilCooperationStrategy(), new CooperationChoicesPayoff());
+            var matchup = new CooperationStrategyMatchup(new NaiveCooperationStrategy(), new EvilCooperationStrategy(), new CooperationChoicesPayoff());
             var matchupSimulation = new CooperationStrategyMatchupSimulation(matchup);
             const int NumberOfRounds = 20;
 
@@ -110,8 +89,7 @@
         public void SimulateWillReturnCorrectMatchupResults()
         {
             // Arrange
-            var matchup = new CooperationStrategyMatchup(
-                new TitForTatCooperationStrategy(), new EvilCooperationStrategy(), new CooperationChoicesPayoff());
+            var matchup = new CooperationStrategyMatchup(new TitForTatCooperationStrategy(), new EvilCooperationStrategy(), new CooperationChoicesPayoff());
             var matchupSimulation = new CooperationStrategyMatchupSimulation(matchup);
             const int NumberOfRounds = 2;
 

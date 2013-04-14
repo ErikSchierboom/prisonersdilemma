@@ -11,7 +11,7 @@
     /// </summary>
     public class CooperationStrategiesFitnessEvaluatorTests
     {
-        private const int DefaultNumberOfRounds = 10;
+        private const uint DefaultNumberOfRounds = 10;
 
         /// <summary>
         /// Test that calling the default constructor will use the default cooperation choices payoff.

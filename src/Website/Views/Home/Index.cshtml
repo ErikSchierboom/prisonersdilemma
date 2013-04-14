@@ -1,0 +1,81 @@
+﻿@model StudioDonder.PrisonersDilemma.Website.ViewModels.Home.IndexViewModel
+
+@{
+    ViewBag.Title = "Prisoners Dilemma";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    The <a href="http://en.wikipedia.org/wiki/Prisoner's_dilemma">Prisoner's Dilemma</a> is game theory stalwart that shows that cooperation can be the best cooperation strategy evolutionary-wise, even though it may not appear to look like the best strategy at first.
+</p>
+
+<p>
+    In this page you can start a simulation that will pit several cooperation strategies against each other.
+    You can start the simulation and control the parameters with which it will run using the form below.
+</p>
+
+<section>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Simulation form</legend>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.NumberOfRounds)
+                    @Html.TextBoxFor(m => m.NumberOfRounds)
+                    @Html.ValidationMessageFor(m => m.NumberOfRounds)
+                </li>
+                
+                <li>
+                    @Html.LabelFor(m => m.PayoffForCooperateAndCooperate)
+                    @Html.TextBoxFor(m => m.PayoffForCooperateAndCooperate)
+                    @Html.ValidationMessageFor(m => m.PayoffForCooperateAndCooperate)
+                </li>
+                
+                <li>
+                    @Html.LabelFor(m => m.PayoffForCooperateAndDefect)
+                    @Html.TextBoxFor(m => m.PayoffForCooperateAndDefect)
+                    @Html.ValidationMessageFor(m => m.PayoffForCooperateAndDefect)
+                </li>
+                
+                <li>
+                    @Html.LabelFor(m => m.PayoffForDefectAndCooperate)
+                    @Html.TextBoxFor(m => m.PayoffForDefectAndCooperate)
+                    @Html.ValidationMessageFor(m => m.PayoffForDefectAndCooperate)
+                </li>
+                
+                <li>
+                    @Html.LabelFor(m => m.PayoffForDefectAndDefect)
+                    @Html.TextBoxFor(m => m.PayoffForDefectAndDefect)
+                    @Html.ValidationMessageFor(m => m.PayoffForDefectAndDefect)
+                </li>
+            </ol>
+            <input type="submit" value="Start simulation" />
+        </fieldset>
+    }
+</section>
+
+@if (Model.StrategyFitnesses != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Strategy</th>
+                <th>Total payoff</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var strategyFitness in Model.StrategyFitnesses)
+        {
+            <tr>
+                <td>@strategyFitness.Strategy.Name</td>
+                <td>@strategyFitness.TotalPayoff</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

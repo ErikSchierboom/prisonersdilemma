@@ -1,7 +1,6 @@
 ﻿namespace StudioDonder.PrisonersDilemma.Domain
 {
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
 
     /// <summary>
     /// Repository dealing with cooperation strategies.
@@ -31,15 +30,7 @@
         /// </returns>
         public IEnumerable<CooperationStrategy> GetAll()
         {
-            Contract.Ensures(Contract.Result<IEnumerable<CooperationStrategy>>() != null);
-
             return this.cooperationStrategies;
-        }
-
-        [ContractInvariantMethod]
-        private void ObjectInvariant()
-        {
-            Contract.Invariant(this.cooperationStrategies != null);
         }
     }
 }

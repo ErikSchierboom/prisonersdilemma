@@ -10,7 +10,7 @@ namespace StudioDonder.PrisonersDilemma.Domain
     /// </summary>
     public class CooperationStrategiesFitnessEvaluator
     {
-        private const int DefaultNumberOfRounds = 10;
+        private const uint DefaultNumberOfRounds = 10;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CooperationStrategiesFitnessEvaluator"/> class.
@@ -45,7 +45,7 @@ namespace StudioDonder.PrisonersDilemma.Domain
         /// <summary>
         /// Gets or sets the number of rounds.
         /// </summary>
-        public int NumberOfRounds { get; set; }
+        public uint NumberOfRounds { get; set; }
 
         /// <summary>
         /// Evaluates the specified cooperation strategies.

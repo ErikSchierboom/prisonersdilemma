@@ -31,7 +31,7 @@
         /// </summary>
         /// <param name="numberOfRounds">The number of rounds.</param>
         /// <returns>The simulation result.</returns>
-        public CooperationStrategyMatchupSimulationResult Simulate(int numberOfRounds)
+        public CooperationStrategyMatchupSimulationResult Simulate(uint numberOfRounds)
         {
             Requires.That(numberOfRounds > 0, "numberOfRounds", "The number of rounds must be greater than zero.");
 
@@ -45,7 +45,7 @@
         /// </summary>
         /// <param name="numberOfRounds"> </param>
         /// <returns>The matchup results.</returns>
-        private IEnumerable<CooperationStrategyMatchupResult> GetMatchupResults(int numberOfRounds)
+        private IEnumerable<CooperationStrategyMatchupResult> GetMatchupResults(uint numberOfRounds)
         {
             Requires.That(numberOfRounds > 0, "numberOfRounds", "The number of rounds must be greater than zero.");
 
