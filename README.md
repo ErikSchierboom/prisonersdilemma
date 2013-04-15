@@ -2,7 +2,7 @@
 
 An implementation of the famous [prisoners dilemma](http://en.wikipedia.org/wiki/Prisoner's_dilemma) known from game theory. This project allows various strategies to be pitted against each other to see which strategy is the best strategy. For me personally, I wanted to verify that cooperative strategies, which initially do not seem like they can beat more selfish strategies, indeed performed better than selfish strategies.
 
-# Implementation
+## Implementation
 
 The implementation of the prisoner's dilemma and the simulator can be found in the [**Domain**](src/Domain) project. There you'll find classes like [`CooperationChoicesPayoff`](src/Domain/CooperationChoicesPayoff.cs) and the base class for a strategy implementation: [`CooperationStrategy`](src/Domain/CooperationStrategy.cs). We have implemented three different cooperation strategies: 
  * [Naive](src/Domain/NaiveCooperationStrategy.cs): always cooperate.
@@ -31,7 +31,7 @@ You can also modify the cooperation choice payoffs and the number of rounds play
     // Evaluate the fitness of the strategies using the custom payoffs and number of rounds
     var strategyFitnesses = fitnessEvaluator.Evaluate();
 
-# Results
+## Results
 The original (default) payoffs are the following:
     
              | Cooperate | Defect |
