@@ -11,25 +11,29 @@ The implementation of the prisoner's dilemma and the simulator can be found in t
 
 To evaluate the fitness of the three strategies using the following code:
 
-    var fitnessEvaluator = new CooperationStrategiesFitnessEvaluator();
-    var strategyFitnesses = fitnessEvaluator.Evaluate();
+```c#
+var fitnessEvaluator = new CooperationStrategiesFitnessEvaluator();
+var strategyFitnesses = fitnessEvaluator.Evaluate();
+```
 
 You can also modify the cooperation choice payoffs and the number of rounds played:
 
-    var fitnessEvaluator = new CooperationStrategiesFitnessEvaluator()
-                                    {
-                                        NumberOfRounds = 20,
-                                        CooperationChoicesPayoff =
-                                            {
-                                                PayoffForCooperateAndCooperate = 4, 
-                                                PayoffForCooperateAndDefect = -1, 
-                                                PayoffForDefectAndCooperate = 8, 
-                                                PayoffForDefectAndDefect = 2
-                                            }
-                                    };
+```c#
+var fitnessEvaluator = new CooperationStrategiesFitnessEvaluator()
+                                {
+                                    NumberOfRounds = 20,
+                                    CooperationChoicesPayoff =
+                                        {
+                                            PayoffForCooperateAndCooperate = 4, 
+                                            PayoffForCooperateAndDefect = -1, 
+                                            PayoffForDefectAndCooperate = 8, 
+                                            PayoffForDefectAndDefect = 2
+                                        }
+                                };
 
-    // Evaluate the fitness of the strategies using the custom payoffs and number of rounds
-    var strategyFitnesses = fitnessEvaluator.Evaluate();
+// Evaluate the fitness of the strategies using the custom payoffs and number of rounds
+var strategyFitnesses = fitnessEvaluator.Evaluate();
+```
 
 ## Results
 The original (default) payoffs are the following:
