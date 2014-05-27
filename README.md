@@ -1,6 +1,8 @@
-# Prisoners dilemma
+# Prisoners dilemma 
 
 An implementation of the famous [prisoners dilemma](http://en.wikipedia.org/wiki/Prisoner's_dilemma) known from game theory. This project allows various strategies to be pitted against each other to see which strategy is the best strategy. For me personally, I wanted to verify that cooperative strategies, which initially do not seem like they can beat more selfish strategies, indeed performed better than selfish strategies.
+
+[![Build status](https://ci.appveyor.com/api/projects/status/4l00qukdcsgvv671)](https://ci.appveyor.com/project/ErikSchierboom/prisonersdilemma)
 
 ## Implementation
 
