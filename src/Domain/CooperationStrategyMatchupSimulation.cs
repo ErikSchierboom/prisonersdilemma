@@ -48,19 +48,15 @@
         private IEnumerable<CooperationStrategyMatchupResult> GetMatchupResults(uint numberOfRounds)
         {
             Requires.That(numberOfRounds > 0, "numberOfRounds", "The number of rounds must be greater than zero.");
-
-            var results = new List<CooperationStrategyMatchupResult>();
-
+            
             var lastMatchupResult = this.Matchup.Play();
-            results.Add(lastMatchupResult);
+            yield return lastMatchupResult;
 
             for (var i = 1; i < numberOfRounds; i++)
             {
                 lastMatchupResult = this.Matchup.Play(lastMatchupResult);
-                results.Add(lastMatchupResult);
+                yield return lastMatchupResult;
             }
-
-            return results;
         }
     }
 }

@@ -7,7 +7,7 @@
     /// </summary>
     public class CooperationStrategyRepository
     {
-        private readonly IEnumerable<CooperationStrategy> cooperationStrategies;
+        private readonly HashSet<CooperationStrategy> cooperationStrategies;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CooperationStrategyRepository"/> class.
@@ -28,7 +28,7 @@
         /// <returns>
         /// The strategies.
         /// </returns>
-        public IEnumerable<CooperationStrategy> GetAll()
+        public ISet<CooperationStrategy> GetAll()
         {
             return this.cooperationStrategies;
         }

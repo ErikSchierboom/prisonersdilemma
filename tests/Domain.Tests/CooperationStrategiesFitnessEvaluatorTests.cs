@@ -99,10 +99,8 @@
         public void EvaluateWithEmptyCooperationStrategiesDoesNotThrowException()
         {
             // Arranged
-            var cooperationStrategiesFitnessEvaluator = new CooperationStrategiesFitnessEvaluator
-                                                            {
-                                                                CooperationStrategies = new HashSet<CooperationStrategy>()
-                                                            };
+            var cooperationStrategiesFitnessEvaluator = new CooperationStrategiesFitnessEvaluator();
+            cooperationStrategiesFitnessEvaluator.CooperationStrategies.Clear();
 
             // Act
             var fitnesses = cooperationStrategiesFitnessEvaluator.Evaluate();
@@ -119,14 +117,10 @@
         public void EvaluateWithNullCooperationStrategyIgnoresNullCooperationStrategyException()
         {
             // Arranged
-            var cooperationStrategiesFitnessEvaluator = new CooperationStrategiesFitnessEvaluator
-                                                            {
-                                                                CooperationStrategies = new HashSet<CooperationStrategy>
-                                                                                            {
-                                                                                                new NaiveCooperationStrategy(),
-                                                                                                null,
-                                                                                            }
-                                                            };
+            var cooperationStrategiesFitnessEvaluator = new CooperationStrategiesFitnessEvaluator();
+            cooperationStrategiesFitnessEvaluator.CooperationStrategies.Clear();
+            cooperationStrategiesFitnessEvaluator.CooperationStrategies.Add(new NaiveCooperationStrategy());
+            cooperationStrategiesFitnessEvaluator.CooperationStrategies.Add(null);
 
             // Act
             var fitnesses = cooperationStrategiesFitnessEvaluator.Evaluate();
@@ -195,7 +189,7 @@
         public void EvaluateReturnsCorrectTotalPayoffForEachStrategy()
         {
             // Arrange
-            var cooperationStrategiesFitnessEvaluator = new CooperationStrategiesFitnessEvaluator()
+            var cooperationStrategiesFitnessEvaluator = new CooperationStrategiesFitnessEvaluator
                                                             {
                                                                 NumberOfRounds = 3,
                                                             };

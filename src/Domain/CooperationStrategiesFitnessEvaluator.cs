@@ -35,12 +35,12 @@ namespace StudioDonder.PrisonersDilemma.Domain
         /// <summary>
         /// Gets or sets the cooperation strategies.
         /// </summary>
-        public IEnumerable<CooperationStrategy> CooperationStrategies { get; set; }
+        public ISet<CooperationStrategy> CooperationStrategies { get; private set; }
 
         /// <summary>
         /// Gets the cooperation choices payoff.
         /// </summary>
-        public CooperationChoicesPayoff CooperationChoicesPayoff { get; set; }
+        public CooperationChoicesPayoff CooperationChoicesPayoff { get; private set; }
 
         /// <summary>
         /// Gets or sets the number of rounds.
@@ -64,22 +64,12 @@ namespace StudioDonder.PrisonersDilemma.Domain
 
             foreach (var matchup in this.GetMatchups())
             {
-                if (matchup == null)
-                {
-                    continue;
-                }
-
                 var simulation = new CooperationStrategyMatchupSimulation(matchup);
                 simulationResults.Add(simulation.Simulate(this.NumberOfRounds));
             }
 
-            foreach (var cooperationStrategy in this.CooperationStrategies)
+            foreach (var cooperationStrategy in this.CooperationStrategies.Where(s => s != null))
             {
-                if (cooperationStrategy == null)
-                {
-                    continue;
-                }
-
                 var totalPayoff = CalculateTotalPayoff(cooperationStrategy, simulationResults);
                 fitnesses.Add(new CooperationStrategyFitness(cooperationStrategy, totalPayoff));
             }
