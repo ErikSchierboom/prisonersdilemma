@@ -1,4 +1,4 @@
-namespace StudioDonder.PrisonersDilemma.Domain
+namespace PrisonersDilemma.Domain
 {
     /// <summary>
     /// A cooperation strategy that mimics the opponent's last choice.

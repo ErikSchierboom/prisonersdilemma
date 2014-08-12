@@ -1,9 +1,9 @@
-﻿namespace StudioDonder.PrisonersDilemma.Website.Controllers
+﻿namespace PrisonersDilemma.Website.Controllers
 {
     using System.Web.Mvc;
 
-    using StudioDonder.PrisonersDilemma.Domain;
-    using StudioDonder.PrisonersDilemma.Website.ViewModels.Home;
+    using PrisonersDilemma.Domain;
+    using PrisonersDilemma.Website.ViewModels.Home;
 
     /// <summary>
     /// This controller will allow the user to pit the available strategies against each other.

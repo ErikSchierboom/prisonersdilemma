@@ -1,10 +1,8 @@
-﻿namespace StudioDonder.PrisonersDilemma.Website
+﻿namespace PrisonersDilemma.Website
 {
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
-
-    using StudioDonder.PrisonersDilemma.Website.App_Start;
 
     public class MvcApplication : HttpApplication
     {

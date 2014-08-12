@@ -1,4 +1,4 @@
-﻿namespace StudioDonder.PrisonersDilemma.Domain.Tests
+﻿namespace PrisonersDilemma.Domain.Tests
 {
     using Xunit;
 

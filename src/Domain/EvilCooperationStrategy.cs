@@ -1,4 +1,4 @@
-namespace StudioDonder.PrisonersDilemma.Domain
+namespace PrisonersDilemma.Domain
 {
     /// <summary>
     /// An evil cooperation strategy that always defects.

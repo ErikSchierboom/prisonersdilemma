@@ -1,9 +1,7 @@
-﻿namespace StudioDonder.PrisonersDilemma.Website.Tests.App_Start
+﻿namespace PrisonersDilemma.Website.Tests
 {
     using System.Linq;
     using System.Web.Mvc;
-
-    using StudioDonder.PrisonersDilemma.Website.App_Start;
 
     using Xunit;
 

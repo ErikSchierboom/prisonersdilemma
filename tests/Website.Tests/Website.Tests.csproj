@@ -7,7 +7,7 @@
     <ProjectGuid>{F41E919A-1981-48D0-A1A7-EE4752FFD18B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StudioDonder.PrisonersDilemma.Website.Tests</RootNamespace>
+    <RootNamespace>PrisonersDilemma.Website.Tests</RootNamespace>
     <AssemblyName>Website.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -96,7 +96,9 @@
       <Name>Website</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,10 +1,10 @@
-﻿namespace StudioDonder.PrisonersDilemma.Website.ViewModels.Home
+﻿namespace PrisonersDilemma.Website.ViewModels.Home
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using StudioDonder.PrisonersDilemma.Domain;
-    using StudioDonder.PrisonersDilemma.Website.Controllers;
+    using PrisonersDilemma.Domain;
+    using PrisonersDilemma.Website.Controllers;
 
     /// <summary>
     /// The model for the <see cref="HomeController.Index"/> action.

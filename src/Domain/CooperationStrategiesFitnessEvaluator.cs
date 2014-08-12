@@ -1,4 +1,4 @@
-namespace StudioDonder.PrisonersDilemma.Domain
+namespace PrisonersDilemma.Domain
 {
     using System.Collections.Generic;
     using System.Linq;

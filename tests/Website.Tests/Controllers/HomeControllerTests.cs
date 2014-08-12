@@ -1,13 +1,12 @@
-﻿namespace StudioDonder.PrisonersDilemma.Website.Tests.Controllers
+﻿namespace PrisonersDilemma.Website.Tests.Controllers
 {
     using System.Web.Mvc;
     using System.Web.Routing;
 
     using MvcContrib.TestHelper;
 
-    using StudioDonder.PrisonersDilemma.Website.App_Start;
-    using StudioDonder.PrisonersDilemma.Website.Controllers;
-    using StudioDonder.PrisonersDilemma.Website.ViewModels.Home;
+    using PrisonersDilemma.Website.Controllers;
+    using PrisonersDilemma.Website.ViewModels.Home;
 
     using Xunit;
 

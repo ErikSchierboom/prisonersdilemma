@@ -1,4 +1,4 @@
-﻿namespace StudioDonder.PrisonersDilemma.Website.App_Start
+﻿namespace PrisonersDilemma.Website
 {
     using System.Web.Mvc;
 

@@ -8,7 +8,7 @@
     <ProjectGuid>{34BF8362-2516-4F9A-87D4-F0ECE72F3D01}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StudioDonder.PrisonersDilemma.Domain</RootNamespace>
+    <RootNamespace>PrisonersDilemma.Domain</RootNamespace>
     <AssemblyName>Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

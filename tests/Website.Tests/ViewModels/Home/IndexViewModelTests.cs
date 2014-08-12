@@ -1,8 +1,8 @@
-﻿namespace StudioDonder.PrisonersDilemma.Website.Tests.ViewModels.Home
+﻿namespace PrisonersDilemma.Website.Tests.ViewModels.Home
 {
     using System.ComponentModel.DataAnnotations;
 
-    using StudioDonder.PrisonersDilemma.Website.ViewModels.Home;
+    using PrisonersDilemma.Website.ViewModels.Home;
 
     using Xunit;
     using Xunit.Extensions;

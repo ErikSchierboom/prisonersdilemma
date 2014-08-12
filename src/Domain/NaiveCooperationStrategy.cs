@@ -1,4 +1,4 @@
-﻿namespace StudioDonder.PrisonersDilemma.Domain
+﻿namespace PrisonersDilemma.Domain
 {
     /// <summary>
     /// A naive cooperation strategy that always cooperates.

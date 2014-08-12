@@ -9,7 +9,7 @@
     <ProjectGuid>{A2567B68-E008-4E45-826E-17E976D70FE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StudioDonder.PrisonersDilemma.Domain.Tests</RootNamespace>
+    <RootNamespace>PrisonersDilemma.Domain.Tests</RootNamespace>
     <AssemblyName>Domain.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
