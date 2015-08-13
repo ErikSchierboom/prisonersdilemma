@@ -95,9 +95,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Domain\Domain.csproj">
+    <ProjectReference Include="..\..\src\Core\Core.csproj">
       <Project>{34bf8362-2516-4f9a-87d4-f0ece72f3d01}</Project>
-      <Name>Domain</Name>
+      <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\Website\Website.csproj">
       <Project>{44322B99-1406-4F24-AAA0-800E7CFF6495}</Project>
